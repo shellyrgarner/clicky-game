@@ -2,4 +2,4 @@
 
 Created a memory game with React.  
 
-Images are shuffled randomly after an image is clicked.  The user's score is incremented when clicking an image for the first time.  THe users's score is reset to 0 if they click the same image more than once.  After an incorrect guess, the game restarts and the user's score is reset.
+Images are shuffled randomly after an image is clicked.  The user's score is incremented when clicking an image for the first time.  The users's score is reset to 0 if an image is clicked more than once.  After an incorrect guess, the game restarts and the user's score is reset.
