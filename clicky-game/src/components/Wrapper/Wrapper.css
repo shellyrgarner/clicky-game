@@ -1,11 +1,12 @@
 .wrapper {
-    background: #eceff1;
+    background: #f9fafc;
     height: 100%;
-    display: flex;
+    /* display: flex; */
     flex-flow: row wrap;
     justify-content: space-around;
-    align-content: flex-start;
-    overflow: auto;
+    /* align-content: flex-start; */
+    /* overflow: auto; */
    /* padding: 20px;*/
+   /* padding-bottom: 50px; */
     
 }

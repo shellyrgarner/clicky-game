@@ -4,10 +4,10 @@ import ImageCard from "./components/ImageCard";
 import Title from "./components/Title";
 import images from "./images.json";
 import './App.css';
-// import Column from "./Column.js";
-// import Container from "./Container.js";
-// import Row from "./Row.js";
-// import Nav from "./components/Nav";
+import Column from "./Column.js";
+import Container from "./Container.js";
+import Row from "./Row.js";
+// import NavBar from "./components/NavBar";
 
 
 function shuffleImages(array) {
@@ -26,7 +26,7 @@ class App extends Component {
     clicked: [],
     currentScore: 0,
     topScore: 0,
-    winLose: ""
+    message: "Click an image to begin!"
   };
 
   handleClicks = id => {
@@ -53,35 +53,38 @@ class App extends Component {
     }
     else if (newScore === 12) {
       // this.setState({images, clickedId, score: imageClickedId.length, totalScore: this.state.topScore})
-      this.setState({ winLose: "Winner!" });
+      this.setState({ message: "Winner!" });
     }
     this.handleImageShuffle();
   };
 
   handleGameReset = () => {
-    this.setState({ clicked: [], currentScore: 0, topScore: this.state.topScore, winLose: "Game Over!" });
+    this.setState({ clicked: [], currentScore: 0, topScore: this.state.topScore, message: "Game Over!" });
     this.handleImageShuffle();
   }
 
 
   render() {
     return (
-      <div className="App">
-     
+      <Wrapper>
 
-        <header className="App-header"> 
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <h1 className="App-logo">Clicky Flowers Game</h1> 
-        {/* <p className="App-winLose"> {this.state.winLose} </p> */}
-        <h2 className="App-score">{this.state.winLose} Score: {this.state.currentScore} <span> | </span> Top Score: {this.state.topScore}</h2> 
-      </header> 
+        <div className="App">
+          <header className="App-header">
+            <h1 className="App-logo">Flowers Clicky Game</h1>
+            <h2 className="App-score">{this.state.winLose} Score: {this.state.currentScore} <span> | </span> Top Score: {this.state.topScore}</h2>
+          </header>
+        </div>
 
-        <Title>Click an image once to earn points. Game resets if an image is clicked more than once.</Title>
-        <Wrapper>
-        {/* <Container> */}
-          {/* <Row> */}
+
+
+        <Title>Click an image once to earn points.
+          Game resets if an image is clicked more than once.
+        </Title>
+
+        <Container>
+          <Row>
             {this.state.images.map(image => (
-              // <Column size="md-3 sm-6">
+              <Column size="md-3 sm-6">
                 <ImageCard
                   key={images.id}
                   handleClicks={this.handleClicks}
@@ -91,14 +94,13 @@ class App extends Component {
                   id={image.id}
                   image={image.image}
                 />
-              // </Column>
+              </Column>
             ))}
-          {/* </Row> */}
-        {/* </Container> */}
+          </Row>
+        </Container>
       </Wrapper>
-      </div>
     );
-  }
-}
+  };
+};
 
 export default App;
